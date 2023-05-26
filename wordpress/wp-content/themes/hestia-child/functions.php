@@ -28,8 +28,8 @@ add_action( 'elementor_pro/forms/new_record', function( $record, $ajax_handler )
         $fields[ $id ] = $field['value'];
     }
     
-    global $dbproject;
-    $output['success'] = $dbproject->insert('form', array('email' => $fields['email'], 'password' => $fields['password'], 'firstname' => $fields['firstname'], 'lastname' => $fields['lastname'], 'nickname' => $fields['nickname'], 'country' => $fields['country'], 'gender' => $fields['gender'], 'martialStatus' => $fields['maritalStatus'], 'profession' => $fields['profession'],'education' => $fields['education']));
+    global $wpdb;
+    $output['success'] = $wpdb->insert('form', array('email' => $fields['email'], 'password' => $fields['password'], 'firstname' => $fields['firstname'], 'lastname' => $fields['lastname'], 'nickname' => $fields['nickname'], 'country' => $fields['country'], 'gender' => $fields['gender'], 'martialStatus' => $fields['maritalStatus'], 'profession' => $fields['profession'],'education' => $fields['education']));
     
     $ajax_handler->add_response_data( true, $output );
     
